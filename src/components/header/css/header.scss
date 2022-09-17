@@ -1,0 +1,22 @@
+//CLASSES
+
+.headerContainer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+
+.searchBar {
+    border-radius: 14px;
+    padding: 2px;
+}
+
+.searchBar:focus {
+    outline: none;
+    border:2px solid #43009c;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.searchBarContainer {
+    display: flex;
+}

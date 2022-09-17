@@ -1,0 +1,39 @@
+@use '../../../abstracts/index' as *;
+
+// CLASSES
+
+.formField {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formFieldInput {
+    border-radius: 14px;
+    padding: 2px;
+    width: 100%;
+}
+
+.formFieldInput:focus {
+    outline: none;
+    border:2px solid #43009c;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.formFieldLabel {
+    text-align: left;
+    width: 50%;
+}
+
+.loginForm {
+    align-items: center;
+    border: 4px solid black;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    min-width: 95%;
+}
+
+// IDS

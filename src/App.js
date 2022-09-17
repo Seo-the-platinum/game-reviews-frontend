@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Login from './views/login/Login'
+import Header from './components/header/Header'
+import './css/app.css'
 
-function App() {
+const App = () => {
+  const [ dark, setDark ] = useState(true)
+  const handleToggle = ()=> {
+    setDark(prev => !prev)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={!dark ? 'app' : 'app dark'}>
+      <Header dark={dark} handleToggle={handleToggle}/>
+      <Login/>
     </div>
   );
 }
