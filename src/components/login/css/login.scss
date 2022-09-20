@@ -11,17 +11,18 @@
 
 .formFieldInput {
     border-radius: 14px;
-    padding: 2px;
+    padding: 5px;
     width: 100%;
 }
 
 .formFieldInput:focus {
     outline: none;
-    border:2px solid #43009c;
+    border: 2px solid #43009c;
     box-shadow: 0 0 10px #719ECE;
 }
 
 .formFieldLabel {
+    margin-bottom: 5px;
     text-align: left;
     width: 50%;
 }

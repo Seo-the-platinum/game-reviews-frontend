@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import Switch from 'react-switch'
+import LoginAndSignup from './LoginAndSignup'
 import './css/header.css'
 
 const Header = ({dark, handleToggle}) => {
@@ -19,6 +20,7 @@ const Header = ({dark, handleToggle}) => {
           uncheckedIcon={false}
         />
         <SearchBar/>
+        <LoginAndSignup/>
     </div>
   )
 }
