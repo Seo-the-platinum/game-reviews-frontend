@@ -1,7 +1,16 @@
+.header-btns {
+  border-radius: 10px;
+}
+
 .headerContainer {
   display: flex;
   justify-content: space-evenly;
   padding: 2%;
+}
+
+.loginAndSignups {
+  display: flex;
+  justify-content: space-between;
 }
 
 .searchBar {
@@ -17,4 +26,26 @@
 
 .searchBarContainer {
   display: flex;
+}
+
+#dark-login-btn {
+  background-color: #0062b3;
+  border: none;
+  color: white;
+}
+
+#dark-signup-btn {
+  background: #192b38;
+  border: none;
+  color: white;
+}
+
+#login-btn {
+  background-color: white;
+  border: 2px solid #0062b3;
+}
+
+#signup-btn {
+  background-color: white;
+  border: 2px solid #192b38;
 }/*# sourceMappingURL=header.css.map */

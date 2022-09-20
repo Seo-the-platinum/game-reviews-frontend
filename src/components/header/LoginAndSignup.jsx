@@ -1,8 +1,11 @@
 import React from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const LoginAndSignup = () => {
     const navigate = useNavigate()
+    const dark = useSelector(state => state.theme.value)
+    console.log(dark)
     const handleLogin = ()=> {
         navigate('/login')
     }
@@ -10,10 +13,11 @@ const LoginAndSignup = () => {
     const handleSignup = ()=> {
         navigate('/signup')
     }
+
   return (
     <div className='loginAndSignups'>
-        <button onClick={handleLogin}>Login</button>
-        <button onClick={handleSignup}>Signup</button>
+        <button className='header-btns' id={dark ? 'dark-login-btn' : 'login-btn'} onClick={handleLogin}>Login</button>
+        <button className='header-btns' id={dark ? 'dark-signup-btn' : 'signup-btn'} onClick={handleSignup}>Signup</button>
     </div>
   )
 }
