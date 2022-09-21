@@ -6,7 +6,7 @@ const Home = ({games}) => {
   return (
     <div className='views'>
         <h1>Welcome some user</h1>
-        { games && games.map(game => <Game game={game}/>)}
+        { games && games.map(game => <Game key={game.id} game={game}/>)}
     </div>
   )
 }

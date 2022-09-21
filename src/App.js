@@ -25,8 +25,10 @@ const App = () => {
               description
               id
               players {
+                user_id
                 context
                 rating
+                id
               }
               title
             }
@@ -38,7 +40,6 @@ const App = () => {
         },
       })
       const json = await data.json()
-      console.log(json)
       setGames(json.data.games)
     }
     getData()
@@ -50,8 +51,6 @@ const App = () => {
   }
 
   const width = window.screen.width
-
-  console.log(games)
   return (
     <div className={!dark ? 'app' : 'app dark'}>
       <Header dark={dark} handleToggle={handleToggle}/>

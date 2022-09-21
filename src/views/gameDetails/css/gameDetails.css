@@ -1,0 +1,16 @@
+.gameDetailsImage {
+  height: auto;
+  width: 95%;
+}
+
+.gameDetailsImageContainer {
+  justify-content: center;
+  display: flex;
+  height: 100%;
+}
+
+.gameDetailsInfoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}/*# sourceMappingURL=gameDetails.css.map */

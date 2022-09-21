@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 const LoginAndSignup = () => {
     const navigate = useNavigate()
     const dark = useSelector(state => state.theme.value)
-    console.log(dark)
     const handleLogin = ()=> {
         navigate('/login')
     }
