@@ -1,1 +1,28 @@
-/*# sourceMappingURL=review.css.map */
+.darkReviewUsername {
+  color: white;
+}
+
+.darkReviewContext {
+  color: white;
+}
+
+.reviewContainer {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.reviewContext {
+  color: black;
+}
+
+.reviewUsername {
+  color: black;
+}
+
+.usernameAndRating {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}/*# sourceMappingURL=review.css.map */

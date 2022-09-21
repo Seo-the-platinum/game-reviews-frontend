@@ -20,9 +20,11 @@ const GameDetails = () => {
             <p className={dark ? 'darkGameDescription' : 'gameDescription'}>{description}</p>
         </div>
         <div className="gameReviews">
-            <h3>Reviews</h3>
+            <h3 className={dark ? 'darkGameReviewsHeader' : 'gameReviewsHeader'}>
+                Reviews
+            </h3>
             { players && players.map(player => {
-                return <Review key={player.id} review={player}/>
+                return <Review key={player.id} review={player} dark={dark}/>
             })}
         </div>
     </div>
