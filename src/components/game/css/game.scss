@@ -1,0 +1,42 @@
+// CLASSES
+
+.gameContainer {
+    align-items: center;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.gameImage {
+    height: auto;
+    width: 95%;
+}
+
+.gameImageContainer {
+    justify-content: center;
+    display: flex;
+    max-height: 50%;
+}
+
+.gameInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.darkGameDescription {
+    color: white;
+}
+
+.darkGameTitle {
+    color: white;
+}
+
+.gameDescription {
+    color: black;
+}
+
+.gameTitle {
+    color: black;
+}

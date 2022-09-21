@@ -1,7 +1,8 @@
 .footerContainer {
+  background-color: purple;
   border: 3px solid purple;
   bottom: 0px;
   display: flex;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }/*# sourceMappingURL=footer.css.map */

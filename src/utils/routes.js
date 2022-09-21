@@ -1,3 +1,7 @@
 routes = [
-    //route info here
+    {
+        name: 'home',
+        route: '/',
+    },
+    
 ]

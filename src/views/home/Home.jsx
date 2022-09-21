@@ -1,8 +1,13 @@
 import React from 'react'
+import Game from '../../components/game/Game'
+import '../css/views.css'
 
-const Home = () => {
+const Home = ({games}) => {
   return (
-    <div>Home</div>
+    <div className='views'>
+        <h1>Welcome some user</h1>
+        { games && games.map(game => <Game game={game}/>)}
+    </div>
   )
 }
 
