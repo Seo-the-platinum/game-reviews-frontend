@@ -1,16 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../../utils/LoginSchema'
+import { useDispatch } from 'react-redux'
+import { updateUser } from '../../features/user/userSlice'
+import { useNavigate } from 'react-router-dom'
 import './css/login.css'
 
-const LoginForm = () => {
+const LoginForm = ({dark}) => {
+    const [ loginData, setLoginData ] = useState()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(schema)
     })
+    useEffect(()=> {
+        if (loginData) {
+            const loginUser = async ()=> {
+                const loginReq = await fetch('http://127.0.0.1:5000/graphql', {
+                    body: JSON.stringify({
+                        query: `query {
+                            userLogin(string: "${loginData.email_or_username}", password: "${loginData.password}") {
+                                email
+                                games {
+                                    context
+                                    id
+                                }
+                                username
+                            }
+                        }`
+                    }),
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json'}
+                })
+                const json = await loginReq.json()
+                dispatch(updateUser(json.data.userLogin))
+                navigate('/')
+            }
+            loginUser()
+        } 
+    },[loginData])
 
     const handleFormSubmit = (data)=> {
-        console.log(data)
+        setLoginData({...data})
     }
   return (
     <form className='loginForm' onSubmit={handleSubmit(handleFormSubmit)}>
@@ -38,7 +70,7 @@ const LoginForm = () => {
         <p className='loginErrors'>
             {errors.password?.message}
         </p>
-        <button type='submit'>
+        <button className='login-btn' id={dark ? 'dark-login-btn' : ''} type='submit'>
             submit
         </button>
     </form>

@@ -1,9 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Tab = ({route}) => {
-    console.log(route)
+  const navigate = useNavigate()
+  const handleClick = ()=> {
+    navigate(route.path)
+  }
+
   return (
-    <div>Tab</div>
+    <div onClick={handleClick}>
+      {route.icon}
+    </div>
   )
 }
 

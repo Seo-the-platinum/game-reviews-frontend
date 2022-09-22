@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from './components/header/Header'
 import Home from './views/home/Home'
+import Profile from './views/profile/Profile'
 import Login from './views/login/Login'
 import Signup from './views/signup/Signup'
 import GameDetails from './views/gameDetails/GameDetails'
@@ -59,6 +60,7 @@ const App = () => {
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/game-details' element={<GameDetails />} />
+        <Route path='/user-profile' element={<Profile />} />
       </Routes>
       { width < 979 && <Footer/> } 
     </div>

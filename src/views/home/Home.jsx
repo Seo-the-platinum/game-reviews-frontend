@@ -1,11 +1,14 @@
 import React from 'react'
 import Game from '../../components/game/Game'
+import { useSelector } from 'react-redux'
 import '../css/views.css'
 
 const Home = ({games}) => {
+  const user = useSelector(state=> state.user.value)
+  console.log(user)
   return (
     <div className='views'>
-        <h1>Welcome some user</h1>
+        <h1>{user.username && `Hello ${user.username}`}</h1>
         { games && games.map(game => <Game key={game.id} game={game}/>)}
     </div>
   )

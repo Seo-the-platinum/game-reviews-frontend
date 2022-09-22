@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../../utils/SignupSchema'
 import './css/signup.css'
 
-const SignupForm = () => {
+const SignupForm = ({dark}) => {
     const [ signupData, setSignupData ] = useState()
+    const navigate = useNavigate()
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(schema)
     })
@@ -33,9 +35,9 @@ const SignupForm = () => {
 
     const handleFormSubmit = (data)=> {
         setSignupData({...data})
-        console.log(data)
         if (data.password === data.confirm) {
             addUser()
+            navigate('/')
         } else {
             return
         }
@@ -83,7 +85,7 @@ const SignupForm = () => {
             />
             <p className='signupErrors'>{errors.confirm?.message}</p>
         </div>
-        <button type='submit'>Signup</button>
+        <button className='signup-btn' id={dark ? 'dark-signup-btn' : ''} type='submit'>Signup</button>
     </form>
   )
 }
