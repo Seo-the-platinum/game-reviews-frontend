@@ -25,6 +25,8 @@ const LoginForm = ({dark}) => {
                                 games {
                                     context
                                     id
+                                    game_id
+                                    rating
                                 }
                                 username
                             }
