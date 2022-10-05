@@ -41,3 +41,25 @@
 .gameTitle {
     color: black;
 }
+
+.gameTileContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameTileImage {
+    width: 60%;
+}
+
+.gameTileStars {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gameTileReview {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}

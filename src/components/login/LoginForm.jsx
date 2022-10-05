@@ -21,6 +21,7 @@ const LoginForm = ({dark}) => {
                     body: JSON.stringify({
                         query: `query {
                             userLogin(string: "${loginData.email_or_username}", password: "${loginData.password}") {
+                                id
                                 email
                                 games {
                                     context

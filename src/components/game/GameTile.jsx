@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import StarIcon from '@mui/icons-material/Star';
+import './css/game.css'
 
 const GameTile = ({game}) => {
     const starCount = Array.from(Array(game.rating).keys())
@@ -25,9 +26,15 @@ const GameTile = ({game}) => {
         getGameData()
     },[])
   return (
-    <div>
-        <img src={gameData?.background_image}/>
-        <p>{gameData?.title}</p>
+    <div className='gameTileContainer'>
+        <img className='gameTileImage' src={gameData?.background_image}/>
+        <h3>{gameData?.title}</h3>
+        <div className="gameTileReview">
+            <p>Your Rating:</p>
+            <div className="gameTileStars">
+                {starCount.map(star=> <StarIcon key={star} sx={{color: 'red'}} fontSize='small'/>)}
+            </div>
+        </div>
     </div>
   )
 }

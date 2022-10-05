@@ -8,8 +8,12 @@ import './css/gameDetails.css'
 const GameDetails = () => {
     const location = useLocation()
     const dark = useSelector(state=> state.theme.value)
+    const user = useSelector(state=> state.user.value)
     const { background_image, description, players, title } = location.state
-    
+    const addReview = user && players.find(({user_id})=> user_id === user.id)
+    const handleAddReview = ()=> {
+        console.log('I want  to add a review please!')
+    }
   return (
     <div className='views'>
         <div className="gameDetailsImageContainer">
@@ -23,6 +27,9 @@ const GameDetails = () => {
             <h3 className={dark ? 'darkGameReviewsHeader' : 'gameReviewsHeader'}>
                 Reviews
             </h3>
+            <div className="addReview">
+                {!addReview && <button onClick={handleAddReview}>Did you play it? Add a review!</button>}
+            </div>
             { players && players.map(player => {
                 return <Review key={player.id} review={player} dark={dark}/>
             })}
