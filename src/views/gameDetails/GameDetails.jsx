@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Review from '../../components/review/Review'
 import '../css/views.css'
@@ -9,11 +9,13 @@ const GameDetails = () => {
     const location = useLocation()
     const dark = useSelector(state=> state.theme.value)
     const user = useSelector(state=> state.user.value)
-    const { background_image, description, players, title } = location.state
+    const navigate = useNavigate()
+    const { background_image, description, players, title, id} = location.state
     const addReview = user && players.find(({user_id})=> user_id === user.id)
     const handleAddReview = ()=> {
-        console.log('I want  to add a review please!')
+        navigate('/add-review', {state: {background_image, description, title, id}})
     }
+    
   return (
     <div className='views'>
         <div className="gameDetailsImageContainer">
@@ -28,7 +30,7 @@ const GameDetails = () => {
                 Reviews
             </h3>
             <div className="addReview">
-                {!addReview && <button onClick={handleAddReview}>Did you play it? Add a review!</button>}
+                {!addReview && <button onClick={handleAddReview}>Add a review!</button>}
             </div>
             { players && players.map(player => {
                 return <Review key={player.id} review={player} dark={dark}/>

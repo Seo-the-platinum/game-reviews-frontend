@@ -5,6 +5,7 @@ import Profile from './views/profile/Profile'
 import Login from './views/login/Login'
 import Signup from './views/signup/Signup'
 import GameDetails from './views/gameDetails/GameDetails'
+import AddReview from './views/addReview/AddReview'
 import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -61,6 +62,7 @@ const App = () => {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/game-details' element={<GameDetails />} />
         <Route path='/user-profile' element={<Profile />} />
+        <Route path='/add-review' element={<AddReview/>}/>
       </Routes>
       { width < 979 && <Footer/> } 
     </div>
