@@ -33,7 +33,7 @@ const Review = ({dark, review}) => {
             <p className={ dark ? 'darkReviewUsername' : 'reviewUsername'}>{username}</p>
             <div className="starContainer">
                 { starCount.map(count => {
-                    return <StarIcon key={count} sx={{color: 'red'}} fontSize='small'/>
+                    return <StarIcon key={count} sx={{color: 'gold'}} fontSize='small'/>
                 })}
             </div>
         </div>

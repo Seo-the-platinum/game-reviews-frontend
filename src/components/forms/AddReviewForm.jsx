@@ -1,36 +1,62 @@
 import React, { useState } from 'react'
-import StarIcon from '@mui/icons-material/Star'
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { handleStarChange, stars } from '../../utils/starsLogic'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import './forms.css'
 
-const AddReviewForm = () => {
-    const [ stars, setStars ] = useState(0)
+const AddReviewForm = ({game_id}) => {
+    const [ starsInState, setStarsInState ] = useState(stars)
+    const [ rating, setRating ] = useState(1)
+    const navigate = useNavigate()
+    const user = useSelector(state=> state.user.value)
     const handleStar = (e)=> {
-        console.log('twinkle twinkle', e.currentTarget.id)
+        setStarsInState(handleStarChange(e.currentTarget.id))
+        setRating(e.currentTarget.id)
     }
+    console.log(user)
+    const handleSubmit = (e)=> {
+        e.preventDefault()
+        const context = document.getElementById('textArea').value
+        const post = async ()=> {
+            const request = await fetch('http://127.0.0.1:5000/graphql', {
+                body: JSON.stringify({
+                    query: `mutation {
+                        addReview(
+                            context: "${context}",
+                            game_id: "${game_id}",
+                            rating: ${rating},
+                            user_id: "${user.id}"
+                        ) {
+                            context
+                        }
+                    }`
+                }),
+                method: 'POST',
+                headers: {
+                    'content-Type': 'application/json',
+                  },
+            })
+            const data = await request.json()
+            console.log(data)
+            navigate('/')
+        }
+        post()
+    }
+    
   return (
     <div className='addReviewFormContainer'>
-        <form className='addReviewForm'>
+        <form className='addReviewForm' onSubmit={handleSubmit}>
           <label>Rating:</label>
           <div className="starsContainer">
-            <div className="starContainer" id='1' onClick={handleStar}>
-                <StarIcon sx={{color: 'gold'}}/>
-            </div>
-            <div className="starContainer" id='2' onClick={handleStar}>
-                <StarIcon sx={{color: 'gold'}}/>
-            </div>
-            <div className="starContainer" id='3' onClick={handleStar}>
-                <StarIcon sx={{color: 'gold'}}/>
-            </div>
-            <div className="starContainer" id='4' onClick={handleStar}>
-                <StarIcon sx={{color: 'gold'}}/>
-            </div>
-            <div className="starContainer" id='5' onClick={handleStar}>
-                <StarIcon sx={{color: 'gold'}}/>
-            </div>
+            { starsInState.map(star=> {
+                return (
+                <div className="starContainer" id={star.id} onClick={handleStar} key={star.id}>
+                    {star.icon}
+                </div>)
+            })}
           </div>
           <label>Tell us what you thought</label>
-          <textarea col='100' rows='5' maxLength='200'></textarea>
+          <textarea id='textArea' col='100' rows='5' maxLength='200'></textarea>
           <button className='reviewFormButton' type='submit'> Add Review</button>
         </form>
     </div>
