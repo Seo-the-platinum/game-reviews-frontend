@@ -15,7 +15,7 @@ const GameDetails = () => {
     const handleAddReview = ()=> {
         navigate('/add-review', {state: {background_image, description, title, id}})
     }
-    
+    console.log(addReview)
   return (
     <div className='views'>
         <div className="gameDetailsImageContainer">
@@ -30,7 +30,7 @@ const GameDetails = () => {
                 Reviews
             </h3>
             <div className="addReview">
-                {!addReview && <button onClick={handleAddReview}>Add a review!</button>}
+                {!addReview && user?.id && <button onClick={handleAddReview}>Add a review!</button>}
             </div>
             { players && players.map(player => {
                 return <Review key={player.id} review={player} dark={dark}/>

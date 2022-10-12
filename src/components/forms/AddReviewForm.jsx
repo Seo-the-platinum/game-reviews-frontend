@@ -37,27 +37,26 @@ const AddReviewForm = ({game_id}) => {
                   },
             })
             const data = await request.json()
-            console.log(data)
             navigate('/')
         }
         post()
     }
-    
+    console.log(user)
   return (
     <div className='addReviewFormContainer'>
         <form className='addReviewForm' onSubmit={handleSubmit}>
-          <label>Rating:</label>
-          <div className="starsContainer">
+            <label>Rating:</label>
+            <div className="starsContainer">
             { starsInState.map(star=> {
                 return (
                 <div className="starContainer" id={star.id} onClick={handleStar} key={star.id}>
                     {star.icon}
                 </div>)
             })}
-          </div>
-          <label>Tell us what you thought</label>
-          <textarea id='textArea' col='100' rows='5' maxLength='200'></textarea>
-          <button className='reviewFormButton' type='submit'> Add Review</button>
+            </div>
+            <label>Tell us what you thought</label>
+            <textarea id='textArea' col='100' rows='5' maxLength='200'></textarea>
+            <button className='reviewFormButton' type='submit'> Add Review</button>
         </form>
     </div>
   )
