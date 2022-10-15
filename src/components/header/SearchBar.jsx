@@ -2,6 +2,16 @@ import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import './css/header.css'
 
+const rawg_fetch = async (search)=> {
+  const request = await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_RAWG_ID}&search=${search}&page_size=10`, {
+    method: 'GET',
+    headers: { 'content-type': 'application/json'}
+  })
+  const data = await request.json()
+  const { results } = data
+  console.log(results)
+}
+
 const SearchBar = () => {
   const [ search, setSearch ] = useState('')
   const handleSearch = (e)=> {
@@ -25,7 +35,11 @@ const SearchBar = () => {
         headers: { 'content-type': 'application/json'}
       })
       const data = await request.json()
-      console.log(data)
+      const { gamesByString } = data.data
+      
+      if (!gamesByString.length) {
+        rawg_fetch(search)
+      }
     }
     sendSearch()
   }
