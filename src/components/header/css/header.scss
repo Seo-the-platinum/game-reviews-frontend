@@ -2,6 +2,7 @@
 
 .header-btns {
     border-radius: 10px;
+    max-height: 28px;
 }
 
 .headerContainer {
@@ -17,7 +18,7 @@
 
 .searchBar {
     border: none;
-    height: 85%;
+    height: 70%;
     padding: 4px;
 }
 
@@ -38,6 +39,7 @@
     border: 1px solid black;
     border-radius: 14px;
     display: flex;
+    justify-content: space-between;
     padding-left: 2%;
 }
 
@@ -45,6 +47,16 @@
     outline: none;
     border:2px solid #43009c;
     box-shadow: 0 0 10px #719ECE;
+}
+
+.resultsContainer {
+    display: flex;
+    width: 100%;
+}
+
+.searchResultContainer {
+    display: flex;
+    width: 100%;
 }
 
 //IDS
