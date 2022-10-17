@@ -1,52 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
+import SearchResultItem from './SearchResultItem'
 import './css/header.css'
-
-const rawg_fetch = async (search, signal)=> {
-  try {
-    const request = await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_RAWG_ID}&search=${search}&page_size=10`, {
-      method: 'GET',
-      headers: { 'content-type': 'application/json'},
-      signal
-    })
-    const data = await request.json()
-    const { results } = data
-    console.log(results)
-  } catch(e) {
-    if (!signal.aborted) {
-      console.log(e)
-    }
-  }
-}
-
-const sendSearch = async (search, signal)=> {
-  try {
-    const request = await fetch('http://127.0.0.1:5000/graphql', {
-      body: JSON.stringify({
-        query: `query {
-            gamesByString(str: "${search}") {
-              title
-              id
-              background_image
-          }
-        }`
-      }),
-      method: 'POST',
-      headers: { 'content-type': 'application/json'},
-      signal
-    })
-    const data = await request.json()
-    const { gamesByString } = data.data
-    console.log(gamesByString)
-    if (!gamesByString.length) {
-      return rawg_fetch(search, signal)
-    }
-  } catch (e) {
-    if (!signal.aborted) {
-      console.log(e)
-    }
-  }
-}
 
 const SearchBar = () => {
   const [ search, setSearch ] = useState('')
@@ -116,24 +71,21 @@ const SearchBar = () => {
     e.preventDefault()
   }
 
-  console.log(results)
   return (
-    <div style={{display: 'flex', flexDirection: 'column'}}>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <form className='searchBarContainer'>
-          <input className='searchBar' onChange={handleSearch} type='text'/>
+          <input className='searchBar' onChange={handleSearch} type='text' value={search}/>
           <button className='searchBarButton' onClick={handleSubmit} type='submit'>
             <SearchIcon sx={{fontSize: '24px'}}/>
           </button>
       </form>
       <div className="resultsContainer">
-          {results && results.map(game=> {
+          {results && results.slice(0, 5).map(game => {
             return (
-              <div className="searchResultContainer">
-                <img style={{width: '100%'}} src={game.background_image}/>
-                <p>{game.title}</p>
-              </div>
+              <SearchResultItem game={game} setResults={setResults} setSearch={setSearch}/>
             )
-          })}
+          })
+          }
         </div>
     </div>
   )

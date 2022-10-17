@@ -8,7 +8,9 @@
 .headerContainer {
     display: flex;
     justify-content: space-evenly;
-    padding: 2%;
+    position: absolute;
+    padding-top: 1%;
+    width: 100%;
 }
 
 .loginAndSignups {
@@ -19,7 +21,7 @@
 .searchBar {
     border: none;
     height: 70%;
-    padding: 4px;
+    padding-left: 10px;
 }
 
 .searchBar:focus {
@@ -40,7 +42,7 @@
     border-radius: 14px;
     display: flex;
     justify-content: space-between;
-    padding-left: 2%;
+    overflow: hidden;
 }
 
 .searchBarContainer:focus-within {
@@ -50,13 +52,31 @@
 }
 
 .resultsContainer {
+    align-items: center;
+    background-color: white;
+    border-radius: 14px;
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    overflow-x: hidden;
+    width: 90%;
 }
 
 .searchResultContainer {
+    align-items: center;
+    border-bottom: 1px solid gray;
     display: flex;
+    gap: 5%;
     width: 100%;
+}
+
+.searchResultImage {
+    height: 60px;
+    width: 60px;
+}
+
+.searchResultTitle {
+    font-size: .75em;
+    text-align: left;
 }
 
 //IDS
