@@ -15,7 +15,6 @@ const GameDetails = () => {
     const handleAddReview = ()=> {
         navigate('/add-review', {state: {background_image, description, title, id}})
     }
-    console.log(name)
   return (
     <div className='views'>
         <div className="gameDetailsImageContainer">

@@ -20,6 +20,13 @@ const SearchBar = () => {
                     title
                     id
                     background_image
+                    description
+                    players {
+                      user_id
+                      context
+                      rating
+                      id
+                    }
                 }
               }`
             }),
@@ -70,7 +77,7 @@ const SearchBar = () => {
   const handleSubmit = (e)=> {
     e.preventDefault()
   }
-
+  console.log(results)
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <form className='searchBarContainer'>

@@ -9,7 +9,6 @@ const Game = ({game}) => {
   const toGameDetails = ()=> {
     navigate('/game-details', {state: {...game}})
   }
-  
   return (
     <div className='gameContainer' onClick={toGameDetails}>
       <div className='gameImageContainer'>
