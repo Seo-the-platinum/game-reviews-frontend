@@ -77,7 +77,6 @@ const SearchBar = () => {
   const handleSubmit = (e)=> {
     e.preventDefault()
   }
-  console.log(results)
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <form className='searchBarContainer'>

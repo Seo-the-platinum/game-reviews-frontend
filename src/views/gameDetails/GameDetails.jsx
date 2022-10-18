@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Review from '../../components/review/Review'
@@ -15,6 +15,11 @@ const GameDetails = () => {
     const handleAddReview = ()=> {
         navigate('/add-review', {state: {background_image, description, title, id}})
     }
+
+    useEffect(()=> {
+        window.scrollTo(0,0)
+    },[])
+    
   return (
     <div className='views'>
         <div className="gameDetailsImageContainer">

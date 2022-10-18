@@ -32,12 +32,12 @@ const sendRequest = async (game)=> {
         method: 'POST',
       })
       const res = await request.json()
-      const { background_image, description, id, title } =  res
+      const { background_image, description, id, title } =  res.data.addGame
       return {
         background_image,
         description,
         id,
-        title,
+        title
       }
     } catch(e) {
       console.log(e)
@@ -48,7 +48,7 @@ const SearchResultItem = ({game, setResults, setSearch}) => {
     const navigate = useNavigate()
     const handleRedirect = async ()=> {
         if (typeof game.id !== 'string') {
-          const addedGame = sendRequest(game)
+          const addedGame = await sendRequest(game)
           setResults([])
           setSearch('')
           navigate('/game-details', { state: {...addedGame}})
