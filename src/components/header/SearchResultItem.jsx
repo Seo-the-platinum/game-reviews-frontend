@@ -32,6 +32,7 @@ const sendRequest = async (game)=> {
         method: 'POST',
       })
       const res = await request.json()
+      console.log(res)
       const { background_image, description, id, title } =  res.data.addGame
       return {
         background_image,

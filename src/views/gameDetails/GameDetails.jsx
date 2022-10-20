@@ -11,7 +11,7 @@ const GameDetails = () => {
     const user = useSelector(state=> state.user.value)
     const navigate = useNavigate()
     const { background_image, name, description, players, title, id} = location.state
-    const addReview = user?.id && players.find(({user_id})=> user_id === user.id)
+    const addReview = user?.id && players?.find(({user_id})=> user_id === user.id)
     const handleAddReview = ()=> {
         navigate('/add-review', {state: {background_image, description, title, id}})
     }
