@@ -13,10 +13,10 @@ const AddReviewForm = ({game_id}) => {
         setStarsInState(handleStarChange(e.currentTarget.id))
         setRating(e.currentTarget.id)
     }
-    console.log(user)
     const handleSubmit = (e)=> {
         e.preventDefault()
         const context = document.getElementById('textArea').value
+        console.log(context, game_id, rating, user.id)
         const post = async ()=> {
             const request = await fetch('http://127.0.0.1:5000/graphql', {
                 body: JSON.stringify({
@@ -38,6 +38,7 @@ const AddReviewForm = ({game_id}) => {
             })
             const data = await request.json()
             navigate('/')
+            console.log(data)
         }
         post()
     }

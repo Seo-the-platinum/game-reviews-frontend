@@ -27,7 +27,14 @@ const GameDetails = () => {
         </div>
         <div className="gameDetailsInfoContainer">
             <h3 className={dark ? 'darkGameTitle' : 'gameTitle'}>{title ? title : name}</h3>
-            <p className={dark ? 'darkGameDescription' : 'gameDescription'}>{description}</p>
+            <div className="gameDetailsDescriptionContainer">
+                <p className={
+                    dark ? 'gameDetailsDescriptionDark gameDetailsDescription' :
+                    'gameDetailsDescription'}
+                >
+                    {description}
+                </p>
+            </div>
         </div>
         <div className="gameReviews">
             <h3 className={dark ? 'darkGameReviewsHeader' : 'gameReviewsHeader'}>

@@ -1,12 +1,26 @@
 // CLASSES
+.descriptionContainer {
+    display: flex;
+    max-height: 100px;
+    overflow: hidden;
+}
 
 .gameContainer {
     align-items: center;
-    border: 2px solid white;
     display: flex;
     flex-direction: column;
     margin: 5%;
     padding: 2%;
+}
+
+.gameDescription {
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+            line-clamp: 3; 
+    -webkit-box-orient: vertical;
 }
 
 .gameImage {
@@ -32,10 +46,6 @@
 
 .darkGameTitle {
     color: white;
-}
-
-.gameDescription {
-    color: black;
 }
 
 .gameTitle {

@@ -1,3 +1,18 @@
+.gameDetailsDescriptionContainer {
+  display: flex;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.gameDetailsDescription {
+  color: black;
+  line-height: 1.5em;
+}
+
+.gameDetailsDescriptionDark {
+  color: white;
+}
+
 .gameDetailsImage {
   height: auto;
   width: 95%;

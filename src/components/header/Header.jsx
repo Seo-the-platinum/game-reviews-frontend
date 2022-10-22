@@ -14,11 +14,11 @@ const Header = ({dark, handleToggle}) => {
           checked={dark}
           checkedIcon={false}
           className='react-switch'
-          offColor='#014f4f'
+          offColor='#011c1d'
           offHandleColor='#ffffff'
           onChange={handleToggle}
           onColor='#ffffff'
-          onHandleColor= '#014f4f'
+          onHandleColor='#011c1d'
           uncheckedIcon={false}
         />
         <SearchBar/>

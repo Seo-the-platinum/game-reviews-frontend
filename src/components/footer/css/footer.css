@@ -3,6 +3,12 @@
   border: 3px solid purple;
   bottom: 0;
   display: flex;
+  justify-content: space-around;
   position: fixed;
   width: 100%;
+}
+
+.darkFooter {
+  background-color: #262626;
+  border-color: #262626;
 }/*# sourceMappingURL=footer.css.map */

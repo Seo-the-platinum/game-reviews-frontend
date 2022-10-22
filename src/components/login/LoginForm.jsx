@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../../utils/LoginSchema'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../features/user/userSlice'
 import { useNavigate } from 'react-router-dom'
 import './css/login.css'
@@ -14,6 +14,7 @@ const LoginForm = ({dark}) => {
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(schema)
     })
+
     useEffect(()=> {
         if (loginData) {
             const loginUser = async ()=> {
@@ -50,7 +51,7 @@ const LoginForm = ({dark}) => {
   return (
     <form className='loginForm' onSubmit={handleSubmit(handleFormSubmit)}>
         <div className='formField'>
-            <label className='formFieldLabel'>Email or Username</label>
+            <label className={dark ? 'darkFormText formFieldLabel': 'forFieldLabel'}>Email / Username</label>
             <input
                 className='formFieldInput'
                 name='email_or_username'
@@ -62,7 +63,7 @@ const LoginForm = ({dark}) => {
             {errors.email_or_username?.message}
         </p>
         <div className='formField'>
-            <label className='formFieldLabel'>Password</label>
+            <label className={dark ? 'darkFormText formFieldLabel': 'forFieldLabel'}>Password</label>
             <input
                 className='formFieldInput'
                 name='password'

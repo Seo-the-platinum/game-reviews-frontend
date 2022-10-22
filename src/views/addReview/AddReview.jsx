@@ -6,7 +6,7 @@ import './addReview.css'
 
 const AddReview = () => {
   const location = useLocation()
-  const { id, title, description, background_image } = location.state
+  const { id, title, background_image } = location.state
   return (
     <div className='views'>
       <div className="gameToreviewContainer">

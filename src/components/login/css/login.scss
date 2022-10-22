@@ -1,6 +1,9 @@
 @use '../../../abstracts/index' as *;
 
 // CLASSES
+.darkFormText {
+    color: white;
+}
 
 .formField {
     align-items: flex-start;
@@ -35,7 +38,6 @@
 
 .loginForm {
     align-items: center;
-    border: 4px solid black;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
