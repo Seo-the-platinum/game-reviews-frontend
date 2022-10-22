@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultItem from './SearchResultItem'
 import './css/header.css'
@@ -6,6 +6,8 @@ import './css/header.css'
 const SearchBar = () => {
   const [ search, setSearch ] = useState('')
   const [ results, setResults ] = useState([])
+  const [focusedIndex, setFocusedIndex ] = useState(-1)
+  const resultContainer = useRef(null)
 
   useEffect(()=> {
     const controller = new AbortController();
@@ -67,8 +69,30 @@ const SearchBar = () => {
     return ()=> {
       controller.abort()
     }
-
   },[search])
+
+  useEffect(()=> {
+    if (!resultContainer.current) return;
+
+    resultContainer.current.scrollIntoView({
+      block: 'center',
+    })
+  },[focusedIndex])
+
+  const handleKeydown = (e)=> {
+    const { key } = e
+    let nextIndex = 0;
+    
+    if (key === 'ArrowDown') {
+      nextIndex = (focusedIndex + 1) % results.length
+    }
+
+    if (key === 'ArrowUp') {
+      nextIndex = (focusedIndex + results.length - 1) % results.length
+    }
+
+    setFocusedIndex(nextIndex)
+  }
 
   const handleSearch = (e)=> {
     setSearch(e.target.value)
@@ -77,22 +101,23 @@ const SearchBar = () => {
   const handleSubmit = (e)=> {
     e.preventDefault()
   }
+
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <form className='searchBarContainer'>
-          <input className='searchBar' onChange={handleSearch} type='text' value={search}/>
-          <button className='searchBarButton' onClick={handleSubmit} type='submit'>
-            <SearchIcon sx={{fontSize: '24px'}}/>
-          </button>
-      </form>
-      <div className="resultsContainer">
-          {results && results.slice(0, 5).map(game => {
-            return (
-              <SearchResultItem game={game} setResults={setResults} setSearch={setSearch}/>
-            )
-          })
-          }
+      <div className='searchBarContainer' tabIndex={1} onKeyDown={handleKeydown}>
+        <input className='searchBar' onChange={handleSearch} type='text' value={search}/>
+        <SearchIcon sx={{fontSize: '28px', marginRight: '2px'}}/>
+        <div className="resultsContainer">
+            {results && results.map((game, index) => {
+              return (
+                <div key={index} ref={index === focusedIndex ? resultContainer : null} style={{backgroundColor: index === focusedIndex ? 'black': 'white', width: '100%'}}>
+                  <SearchResultItem game={game} setResults={setResults} setSearch={setSearch} />
+                </div>
+              )
+            })
+            }
         </div>
+      </div>
     </div>
   )
 }

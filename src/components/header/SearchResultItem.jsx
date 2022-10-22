@@ -45,7 +45,7 @@ const sendRequest = async (game)=> {
     }
   }
 }
-const SearchResultItem = ({game, setResults, setSearch}) => {
+const SearchResultItem = ({game, setResults, setSearch, ref}) => {
     const navigate = useNavigate()
     const handleRedirect = async ()=> {
         if (typeof game.id !== 'string') {
