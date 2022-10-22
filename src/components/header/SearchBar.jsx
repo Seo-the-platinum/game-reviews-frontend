@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultItem from './SearchResultItem'
+import { addGameRequest } from '../../utils/addGameApi';
 import './css/header.css'
 
 const SearchBar = () => {
@@ -8,6 +10,7 @@ const SearchBar = () => {
   const [ results, setResults ] = useState([])
   const [focusedIndex, setFocusedIndex ] = useState(-1)
   const resultContainer = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(()=> {
     const controller = new AbortController();
@@ -91,6 +94,15 @@ const SearchBar = () => {
       nextIndex = (focusedIndex + results.length - 1) % results.length
     }
 
+    if (key === 'Enter') {
+      const gameAtIndex = results[focusedIndex]
+      handleRedirect(gameAtIndex)
+    }
+
+    if (key === 'Escape') {
+      handleClear()
+    }
+
     setFocusedIndex(nextIndex)
   }
 
@@ -98,9 +110,21 @@ const SearchBar = () => {
     setSearch(e.target.value)
   }
 
-  const handleSubmit = (e)=> {
-    e.preventDefault()
+  const handleClear = ()=> {
+    setSearch('')
+    setResults([])
   }
+
+  const handleRedirect = async (game)=> {
+    if (typeof game.id !== 'string') {
+      const addedGame = await addGameRequest(game)
+      handleClear()
+      navigate('/game-details', { state: {...addedGame}})
+    } else {
+      handleClear()
+      navigate('/game-details', {state: {...game}})
+    }
+}
 
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -110,8 +134,15 @@ const SearchBar = () => {
         <div className="resultsContainer">
             {results && results.map((game, index) => {
               return (
-                <div key={index} ref={index === focusedIndex ? resultContainer : null} style={{backgroundColor: index === focusedIndex ? 'black': 'white', width: '100%'}}>
-                  <SearchResultItem game={game} setResults={setResults} setSearch={setSearch} />
+                <div 
+                  key={index} 
+                  ref={index === focusedIndex ? resultContainer : null}
+                  onClick={()=>handleRedirect(game)}
+                  style={{
+                    backgroundColor: index === focusedIndex ? `rgba(0,0,0, 0.2)`:
+                     'white', width: '100%'
+                  }}>
+                  <SearchResultItem game={game}/>
                 </div>
               )
             })
