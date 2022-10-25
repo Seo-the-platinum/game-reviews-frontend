@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 
 const Tab = ({route}) => {
   const navigate = useNavigate()
+  const { icon } = route
   const user = useSelector(state=> state.user.value)
   const dark = useSelector(state=> state.theme.value)
   const handleClick = ()=> {
@@ -13,11 +14,10 @@ const Tab = ({route}) => {
       navigate(route.path)
     }
   }
-  dark ? route.icon.props.sx.color = 'white' : 
-  route.icon.props.sx.color = 'black';
+
   return (
     <div onClick={handleClick}>
-      {route.icon}
+      {icon(dark)}
     </div>
   )
 }

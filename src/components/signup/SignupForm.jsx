@@ -46,7 +46,7 @@ const SignupForm = ({dark}) => {
   return (
     <form className='signupForm' onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="formField">
-            <label className='formFieldLabel'>Email</label>
+            <label className={dark ? 'darkFormText formFieldLabel': 'formFieldLabel'}>Email</label>
             <input
                 className='formFieldInput'
                 name="email"
@@ -56,7 +56,7 @@ const SignupForm = ({dark}) => {
             <p className='signupErrors'>{errors.email?.message}</p>
         </div>
         <div className="formField">
-            <label className='formFieldLabel'>Username</label>
+            <label className={dark ? 'darkFormText formFieldLabel': 'formFieldLabel'}>Username</label>
             <input 
                 className='formFieldInput'
                 name='username'
@@ -66,7 +66,7 @@ const SignupForm = ({dark}) => {
             <p className='signupErrors'>{errors.username?.message}</p>
         </div>
         <div className="formField">
-            <label className='formFieldLabel'>Password</label>
+            <label className={dark ? 'darkFormText formFieldLabel': 'formFieldLabel'}>Password</label>
             <input 
                 className='formFieldInput'
                 name='password'
@@ -76,7 +76,7 @@ const SignupForm = ({dark}) => {
             <p className='signupErrors'>{errors.password?.message}</p>
         </div>
         <div className="formField">
-            <label className='formFieldLabel'>Confirm Password</label>
+            <label className={dark ? 'darkFormText formFieldLabel': 'formFieldLabel'}>Confirm Password</label>
             <input
                 className='formFieldInput'
                 name='confirm'
