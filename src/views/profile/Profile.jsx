@@ -5,12 +5,10 @@ import '../css/views.css'
 
 const Profile = () => {
   const user = useSelector(state=> state.user.value)
-  console.log(user.games)
   return (
     <div className='views'>
-      <h3>{`Hello, ${user.username}`}</h3>
       {user.games.map(game => {
-        return <GameTile game={game}/>
+        return <GameTile key={game.id} game={game}/>
       })}
     </div>
   )

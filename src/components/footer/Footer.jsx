@@ -8,7 +8,7 @@ const Footer = () => {
   const dark = useSelector((state)=> state.theme.value)
   return (
     <div className={dark ? 'footerContainer darkFooter' : 'footerContainer'}>
-      {routes.map(route => <Tab route={route}/>)}
+      {routes.map(route => <Tab key={route.name} route={route}/>)}
     </div>
   )
 }

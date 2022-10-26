@@ -96,7 +96,7 @@ const SearchBar = () => {
 
     if (key === 'Enter') {
       const gameAtIndex = results[focusedIndex]
-      handleRedirect(gameAtIndex)
+      gameAtIndex && handleRedirect(gameAtIndex)
     }
 
     if (key === 'Escape') {
@@ -127,7 +127,7 @@ const SearchBar = () => {
 }
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <div className='outerSearchBarContainer' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <div className='searchBarContainer' tabIndex={1} onKeyDown={handleKeydown}>
         <input className='searchBar' onChange={handleSearch} type='text' value={search}/>
         <SearchIcon sx={{fontSize: '28px', marginRight: '2px'}}/>

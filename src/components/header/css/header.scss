@@ -15,7 +15,14 @@
 
 .loginAndSignups {
     display: flex;
+    gap: 10%;
     justify-content: space-between;
+}
+
+.outerSearchBarContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .relativeSearchBar {
@@ -62,6 +69,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    width: 100%;
 }
 
 .searchBarContainer:focus-within {
@@ -98,12 +106,13 @@
 
 #dark-logout-btn {
     background-color: #0062b3;
-    border: none;
+    border: 2px solid #0062b3;
     color: white;
+    padding: 8% 8%;
 }
 
 #dark-header-signup-btn {
-    background: #192b38;
+    background: #0a6f73;
     border: none;
     color: white;
 }
@@ -116,9 +125,46 @@
 #logout-btn {
     background-color: white;
     border: 2px solid #0062b3;
+    padding: 8% 8%;
 }
 
 #header-signup-btn {
     background-color: white;
-    border: 2px solid #192b38;
+    border: 2px solid #0a6f73;
+}
+
+@media screen and (max-width: 360px) {
+    .loginAndSignups {
+        margin-top: 5%;
+        width: 40%;
+    }
+
+    .header-btns {
+        padding: 8% 8%;
+        max-height: none;
+    }
+
+    .headerContainer {
+        flex-wrap: wrap;
+    }
+
+    .outerSearchBarContainer {
+        width: 80%;
+    }
+
+    .searchBarContainer {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 480px) {
+
+    .header-btns {
+        max-height: none;
+    }
+
+    .outerSearchBarContainer {
+        min-width: 55%;
+    }
 }

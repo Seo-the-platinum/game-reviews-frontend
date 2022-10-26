@@ -37,8 +37,9 @@ const LoginForm = ({dark}) => {
                     method: 'POST',
                     headers: { 'content-type': 'application/json'}
                 })
+                
                 const json = await loginReq.json()
-                dispatch(updateUser(json.data.userLogin))
+                dispatch(updateUser({...json.data.userLogin}))
                 navigate('/')
             }
             loginUser()
@@ -75,7 +76,7 @@ const LoginForm = ({dark}) => {
             {errors.password?.message}
         </p>
         <button className='login-btn' id={dark ? 'dark-login-btn' : ''} type='submit'>
-            submit
+            Submit
         </button>
     </form>
   )
