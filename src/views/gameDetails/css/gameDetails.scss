@@ -63,3 +63,11 @@
     color: white;
     padding: 2% 2%;
 }
+
+//MEDIA QUERIES
+
+@media screen and (max-width: 360px) {
+    #gameDetailsContainer {
+        margin-top: 30%;
+    }
+}

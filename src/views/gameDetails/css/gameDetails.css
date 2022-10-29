@@ -60,4 +60,10 @@
   border-radius: 14px;
   color: white;
   padding: 2% 2%;
+}
+
+@media screen and (max-width: 360px) {
+  #gameDetailsContainer {
+    margin-top: 30%;
+  }
 }/*# sourceMappingURL=gameDetails.css.map */

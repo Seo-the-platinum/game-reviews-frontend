@@ -9,15 +9,16 @@ const Game = ({game}) => {
   const toGameDetails = ()=> {
     navigate('/game-details', {state: {...game}})
   }
+  
   return (
     <div className='gameContainer' onClick={toGameDetails}>
       <div className='gameImageContainer'>
-        <img alt='Game background' className='gameImage' src={`${game.background_image}`}/>
+        <img alt='Game background' className='gameImage' data-testid={'background'} src={`${game.background_image}`}/>
       </div>
       <div className='gameInfoContainer'>
-        <h3 className={dark ? 'darkGameTitle' : 'gameTitle'}>{game.title}</h3>
+        <h3 className={dark ? 'darkGameTitle' : 'gameTitle'} role='title'>{game.title}</h3>
         <div className="descriptionContainer">
-          <p className={dark ? 'gameDescription darkGameDescription' : 'gameDescription'}>
+          <p className={dark ? 'gameDescription darkGameDescription' : 'gameDescription'} role='description'>
             {game.description}
           </p>
         </div>
