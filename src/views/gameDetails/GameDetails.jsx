@@ -10,7 +10,6 @@ const GameDetails = () => {
     const dark = useSelector(state=> state.theme.value)
     const user = useSelector(state=> state.user.value)
     const navigate = useNavigate()
-    console.log(location)
     const { background_image, name, description, players, title, id} = location.state
     const addReview = user?.id && players?.find(({user_id})=> user_id === user.id)
     const handleAddReview = ()=> {

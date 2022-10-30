@@ -3,11 +3,18 @@ import SearchBar from './SearchBar'
 import Switch from 'react-switch'
 import LoginAndSignup from './LoginAndSignup'
 import Logout from './Logout'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleTheme } from '../../features/theme/themeSlice'
+
 import './css/header.css'
 
-const Header = ({dark, handleToggle}) => {
+const Header = () => {
   const user = useSelector(state=> state.user.value)
+  const dark = useSelector(state=> state.theme.value)
+  const dispatch =useDispatch()
+  const handleToggle = ()=> {
+      dispatch(toggleTheme())
+    }
   return (
     <div className='headerContainer'>
         <Switch
@@ -19,6 +26,7 @@ const Header = ({dark, handleToggle}) => {
           onChange={handleToggle}
           onColor='#ffffff'
           onHandleColor='#011c1d'
+          role='switch'
           uncheckedIcon={false}
         />
         <SearchBar/>

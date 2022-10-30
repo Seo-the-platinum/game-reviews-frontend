@@ -9,7 +9,7 @@ const test_game = {
 }
 
 describe(Game, ()=> {
-    it('takes a game object in as a prop and displays data',()=> {   
+    test('takes a game object in as a prop and displays data',()=> {   
         const { getByTestId, getByRole } = render(<Game game={test_game} key={test_game.id}/>)
         const imgElement = getByTestId('background')
         const titleElement = getByRole('title').textContent

@@ -129,7 +129,7 @@ const SearchBar = () => {
   return (
     <div className='outerSearchBarContainer' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <div className='searchBarContainer' tabIndex={1} onKeyDown={handleKeydown}>
-        <input className='searchBar' onChange={handleSearch} type='text' value={search}/>
+        <input className='searchBar' onChange={handleSearch} role='input' type='text' value={search}/>
         <SearchIcon sx={{fontSize: '28px', marginRight: '2px'}}/>
         <div className="resultsContainer">
             {results && results.map((game, index) => {

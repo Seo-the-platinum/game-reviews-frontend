@@ -8,14 +8,13 @@ import GameDetails from './views/gameDetails/GameDetails'
 import AddReview from './views/addReview/AddReview'
 import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { toggleTheme } from './features/theme/themeSlice'
+import { useSelector } from 'react-redux'
 import './css/app.css'
 
 const App = () => {
-  const [ dark, setDark ] = useState(true)
+  // const [ dark, setDark ] = useState(true)
+  const dark = useSelector(state=> state.theme.value)
   const [ games, setGames ] = useState([])
-  const dispatch = useDispatch()
 
   useEffect(()=> {
     const getData = async ()=> {
@@ -47,15 +46,10 @@ const App = () => {
     getData()
   },[])
 
-  const handleToggle = ()=> {
-    setDark(prev => !prev)
-    dispatch(toggleTheme())
-  }
-
   const width = window.screen.width
   return (
     <div className={!dark ? 'app' : 'app dark'}>
-      <Header dark={dark} handleToggle={handleToggle}/>
+      <Header/>
       <Routes>
         <Route path='/' element={<Home games={games}/>}/>
         <Route path='/login' element={<Login />}/>
