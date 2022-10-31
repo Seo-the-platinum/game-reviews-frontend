@@ -7,7 +7,7 @@ import './css/signup.css'
 const Signup = () => {
   const dark = useSelector(state=> state.theme.value)
   return (
-    <div className='views' id='signupViews'>
+    <div className='views' id='signupViews' role='signup'>
       <SignupForm dark={dark}/>
     </div>
   )

@@ -14,9 +14,9 @@ const LoginAndSignup = () => {
     }
 
   return (
-    <div className='loginAndSignups'>
-        <button className='header-btns' id={dark ? 'dark-login-btn' : 'login-btn'} onClick={handleLogin}>Login</button>
-        <button className='header-btns' id={dark ? 'dark-header-signup-btn' : 'header-signup-btn'} onClick={handleSignup}>Signup</button>
+    <div className='loginAndSignups' role='btns'>
+        <button className='header-btns' id={dark ? 'dark-login-btn' : 'login-btn'} onClick={handleLogin} role='login-btn'>Login</button>
+        <button className='header-btns' id={dark ? 'dark-header-signup-btn' : 'header-signup-btn'} role='signup-btn' onClick={handleSignup}>Signup</button>
     </div>
   )
 }

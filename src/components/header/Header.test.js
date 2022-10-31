@@ -9,7 +9,6 @@ describe(Header, ()=> {
         let switchElement = getByRole('switch')
         fireEvent.change(switchElement, {target: {checked: false}})
         expect(switchElement.checked).toBe(false)
-        switchElement = getByRole('switch')
         fireEvent.change(switchElement, {target: {checked: true}})
         expect(switchElement.checked).toBe(true)
     })

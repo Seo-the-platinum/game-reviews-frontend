@@ -57,6 +57,7 @@ const LoginForm = ({dark}) => {
                 className='formFieldInput'
                 name='email_or_username'
                 {...register('email_or_username')}
+                role='emailInput'
                 type='text'
             />
         </div>
@@ -69,6 +70,7 @@ const LoginForm = ({dark}) => {
                 className='formFieldInput'
                 name='password'
                 {...register('password')}
+                role='password'
                 type='password'
             />
         </div>

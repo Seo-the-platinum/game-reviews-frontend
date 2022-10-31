@@ -48,7 +48,7 @@ const App = () => {
 
   const width = window.screen.width
   return (
-    <div className={!dark ? 'app' : 'app dark'}>
+    <div className={!dark ? 'app' : 'app dark'} role='app'>
       <Header/>
       <Routes>
         <Route path='/' element={<Home games={games}/>}/>
