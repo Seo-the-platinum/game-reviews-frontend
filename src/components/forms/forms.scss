@@ -1,17 +1,52 @@
-.addReviewFormContainer {
-    display: flex;
-}
-
+// CLASSES
 .addReviewForm {
     align-items: center;
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.addReviewFormContainer {
+    display: flex;
+    width: 100%;
+}
+
+.addReviewFormLabel {
+    color: black;
+}
+
+.darkAddReviewFormLabel {
+    color: white;
 }
 
 .reviewFormButton {
-    width: 30%;
+    background-color: white;
+    border-color: #0a6f73;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+}
+
+.darkReviewFormButton {
+    background-color: #0a6f73;
+    border: none;
+    color: white;
 }
 
 .starsContainer {
     display: flex;
+}
+
+// IDS
+
+#textArea {
+    border-radius: 10px;
+    min-width: 60%;
+}
+
+#textArea:focus-within {
+    border:2px solid #43009c;
+    box-shadow: 0 0 10px #719ECE;
+    outline: none;
 }

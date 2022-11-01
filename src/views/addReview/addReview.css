@@ -1,3 +1,11 @@
+.addReviewTitle {
+  color: dark;
+}
+
 .addReviewImage {
   width: 100%;
+}
+
+.darkAddReviewTitle {
+  color: white;
 }/*# sourceMappingURL=addReview.css.map */

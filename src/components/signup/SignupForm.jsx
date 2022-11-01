@@ -6,38 +6,57 @@ import { schema } from '../../utils/SignupSchema'
 import './css/signup.css'
 
 const SignupForm = ({dark}) => {
-    const [ signupData, setSignupData ] = useState()
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(schema)
     })
-    const addUser = ()=> {
+    const addUser = (data)=> {
         const addUserReq = async ()=> {
-            const request = await fetch('http://127.0.0.1:5000/graphql', {
-                body: JSON.stringify({
-                    query: `mutation {
-                        addUser(
-                            email: "${signupData.email}",
-                            password: "${signupData.password}",
-                            username: "${signupData.username}"
-                            ) {
-                                username
+            try {
+                const emailExists = await fetch('http://127.0.0.1:5000/graphql', {
+                    body: JSON.stringify({
+                        query: `query {
+                            users {
+                                email
                             }
-                    }`
-                }),
-                method: 'POST',
-                headers: { 'content-type': 'application/json'}
-            })
-            const json = await request.json()
+                        }`
+                    }),
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json'}
+                })
+
+                const emailJson = await emailExists.json()
+                if (!emailJson.data.users.find(user=> user.email === data.email)) {
+                    const request = await fetch('http://127.0.0.1:5000/graphql', {
+                        body: JSON.stringify({
+                            query: `mutation {
+                                addUser(
+                                    email: "${data.email}",
+                                    password: "${data.password}",
+                                    username: "${data.username}"
+                                    ) {
+                                        username
+                                    }
+                            }`
+                        }),
+                        method: 'POST',
+                        headers: { 'content-type': 'application/json'}
+                    })
+                    const json = await request.json()
+                    navigate('/')
+                } else {
+                    alert('Email is in use')
+                }
+            } catch {
+                console.log('something wrong')
+            }
         }
         addUserReq()
     }
 
     const handleFormSubmit = (data)=> {
-        setSignupData({...data})
         if (data.password === data.confirm) {
-            addUser()
-            navigate('/')
+            addUser(data)
         } else {
             return
         }

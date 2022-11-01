@@ -9,6 +9,7 @@ const AddReviewForm = ({game_id}) => {
     const [ rating, setRating ] = useState(1)
     const navigate = useNavigate()
     const user = useSelector(state=> state.user.value)
+    const dark = useSelector(state=> state.theme.value)
     const handleStar = (e)=> {
         setStarsInState(handleStarChange(e.currentTarget.id))
         setRating(e.currentTarget.id)
@@ -43,7 +44,7 @@ const AddReviewForm = ({game_id}) => {
   return (
     <div className='addReviewFormContainer'>
         <form className='addReviewForm' onSubmit={handleSubmit}>
-            <label>Rating:</label>
+            <label className={dark ? 'darkAddReviewFormLabel' : 'addReviewFormLabel'}>Rating:</label>
             <div className="starsContainer">
             { starsInState.map(star=> {
                 return (
@@ -52,9 +53,9 @@ const AddReviewForm = ({game_id}) => {
                 </div>)
             })}
             </div>
-            <label>Tell us what you thought</label>
+            <label className={dark ? 'darkAddReviewFormLabel' : 'addReviewFormLabel'}>Tell us what you thought</label>
             <textarea id='textArea' col='100' rows='5' maxLength='200'></textarea>
-            <button className='reviewFormButton' type='submit'> Add Review</button>
+            <button className={dark ? 'darkReviewFormButton reviewFormButton':'reviewFormButton'} type='submit'> Add Review</button>
         </form>
     </div>
   )

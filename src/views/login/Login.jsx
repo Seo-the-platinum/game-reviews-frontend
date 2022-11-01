@@ -8,7 +8,6 @@ const Login = () => {
   const dark = useSelector(state=> state.theme.value)
   return (
     <div className="views" id='loginView'>
-      <p role='login'> login page</p>
         <LoginForm dark={dark}/>
     </div>
   )
