@@ -15,4 +15,11 @@
 #dark-submit-btn {
   background-color: #0062b3;
   border: none;
+}
+
+@media screen and (min-width: 481px) {
+  .views {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }/*# sourceMappingURL=views.css.map */

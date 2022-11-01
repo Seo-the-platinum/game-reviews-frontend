@@ -41,7 +41,8 @@ const GameDetails = () => {
                 Reviews
             </h3>
             <div className="addReview">
-                {!addReview && user?.id && <button className={dark ? 'darkReviewButton' : 'reviewButton'} onClick={handleAddReview}>Add a review!</button>}
+                {!addReview && user?.id && <button className={dark ? 'darkReviewButton' : 
+                'reviewButton'} onClick={handleAddReview}>Add a review</button>}
             </div>
             { players && players.map(player => {
                 return <Review key={player.id} review={player} dark={dark}/>

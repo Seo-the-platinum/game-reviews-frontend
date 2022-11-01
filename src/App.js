@@ -58,7 +58,7 @@ const App = () => {
         <Route path='/user-profile' element={<Profile />} />
         <Route path='/add-review' element={<AddReview/>}/>
       </Routes>
-      { width < 979 && <Footer/> } 
+      { width < 1024 && <Footer/> } 
     </div>
   );
 }

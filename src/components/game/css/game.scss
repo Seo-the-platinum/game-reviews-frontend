@@ -73,3 +73,39 @@
     justify-content: space-evenly;
     width: 80%;
 }
+
+// MEDIA QUERIES
+
+@media screen and (min-width: 481px) {
+    .gameContainer {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .descriptionContainer {
+        max-height: none;
+    }
+
+    .gameContainer {
+        flex-direction: row;
+        margin-bottom: 5%;
+    }
+
+    .gameDescription {
+        -webkit-line-clamp: 6; /* number of lines to show */
+            line-clamp: 6; 
+    }
+
+    .gameContainerInverted {
+        flex-direction: row-reverse;
+    }
+
+    .gameImageContainer {
+        flex: 2;
+    }
+
+    .gameInfoContainer {
+        flex: 1;
+    }
+}

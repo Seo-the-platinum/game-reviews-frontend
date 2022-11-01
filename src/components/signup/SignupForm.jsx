@@ -7,6 +7,7 @@ import './css/signup.css'
 
 const SignupForm = ({dark}) => {
     const navigate = useNavigate()
+    const [ existing, setExisting ] = useState(false)
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(schema)
     })
@@ -18,6 +19,7 @@ const SignupForm = ({dark}) => {
                         query: `query {
                             users {
                                 email
+                                username
                             }
                         }`
                     }),
@@ -26,7 +28,7 @@ const SignupForm = ({dark}) => {
                 })
 
                 const emailJson = await emailExists.json()
-                if (!emailJson.data.users.find(user=> user.email === data.email)) {
+                if (!emailJson.data.users.find(user=> user.email === data.email || user.username === data.username)) {
                     const request = await fetch('http://127.0.0.1:5000/graphql', {
                         body: JSON.stringify({
                             query: `mutation {
@@ -45,7 +47,7 @@ const SignupForm = ({dark}) => {
                     const json = await request.json()
                     navigate('/')
                 } else {
-                    alert('Email is in use')
+                    setExisting(true)
                 }
             } catch {
                 console.log('something wrong')
@@ -64,6 +66,7 @@ const SignupForm = ({dark}) => {
     
   return (
     <form className='signupForm' onSubmit={handleSubmit(handleFormSubmit)}>
+        {existing && <p style={{color: 'red'}}>The email or username you provided is already registered with an account</p>}
         <div className="formField">
             <label className={dark ? 'darkFormText formFieldLabel': 'formFieldLabel'}>Email</label>
             <input

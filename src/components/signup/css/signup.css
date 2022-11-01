@@ -12,12 +12,29 @@
 
 .signup-btn {
   background-color: white;
-  border: 2px solid #0a6f73;
-  border-radius: 14px;
-  padding: 2% 4%;
+  border: 2px solid #0062b3;
+  border-radius: 10px;
+  font-size: 1.25em;
+  padding: 10px;
 }
 
 #dark-signup-btn {
-  background-color: #0a6f73;
+  background-color: #0062b3;
   color: white;
+}
+
+@media screen and (min-width: 481px) {
+  .signupForm {
+    min-width: 70%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .signupForm {
+    min-width: 50%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .signupForm {
+    min-width: 45%;
+  }
 }/*# sourceMappingURL=signup.css.map */

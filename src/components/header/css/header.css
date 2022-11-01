@@ -1,4 +1,5 @@
 .header-btns {
+  font-size: 0.75em;
   border-radius: 10px;
   max-height: 28px;
 }
@@ -135,7 +136,7 @@
     width: 40%;
   }
   .header-btns {
-    padding: 8% 8%;
+    padding: 10px;
     max-height: none;
   }
   .headerContainer {
@@ -148,11 +149,41 @@
     width: 100%;
   }
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 481px) {
   .header-btns {
+    font-size: 0.85em;
     max-height: none;
+    padding: 5%;
+  }
+  .loginAndSignups {
+    gap: 15%;
+    width: 20%;
   }
   .outerSearchBarContainer {
     min-width: 55%;
+  }
+  .searchBar {
+    margin-left: 4%;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 769px) {
+  .header-btns {
+    font-size: 1.25em;
+  }
+  .headerContainer {
+    justify-content: space-between;
+    padding: 1%;
+  }
+  .loginAndSignups {
+    justify-content: space-evenly;
+    margin-right: 1%;
+  }
+  .outerSearchBarContainer {
+    max-width: 50%;
+    min-width: 40%;
+  }
+  .searchBar {
+    margin-left: 2%;
   }
 }/*# sourceMappingURL=header.css.map */

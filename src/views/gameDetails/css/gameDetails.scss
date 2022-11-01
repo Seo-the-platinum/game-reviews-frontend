@@ -27,6 +27,7 @@
 }
 
 .gameDetailsInfoContainer {
+    align-items: center;
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -50,18 +51,18 @@
 
 .reviewButton {
     background-color:white;
-    border: 2px solid #0a6f73;
-    border-radius: 14px;
+    border: 2px solid #0062b3;
+    border-radius: 10px;
     color: black;
-    padding: 2% 2%;
+    padding: 10px;
 }
 
 .darkReviewButton {
-    background-color: #0a6f73;
+    background-color: #0062b3;
     border: none;
-    border-radius: 14px;
+    border-radius: 10px;
     color: white;
-    padding: 2% 2%;
+    padding: 10px;
 }
 
 //MEDIA QUERIES
@@ -69,5 +70,15 @@
 @media screen and (max-width: 360px) {
     #gameDetailsContainer {
         margin-top: 30%;
+    }
+
+    .gameDetailsDescriptionContainer{
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 491px) {
+    .gameDetailsDescriptionContainer{
+        max-width: 70%;
     }
 }
