@@ -11,7 +11,7 @@ const Game = ({game, inverted}) => {
   }
   
   return (
-    <div className={inverted ? 'gameContainerInverted gameContainer' : 'gameContainer'} onClick={toGameDetails}>
+    <div className={!inverted ? 'gameContainerInverted gameContainer' : 'gameContainer'} onClick={toGameDetails}>
       <div className='gameImageContainer'>
         <img alt='Game background' className='gameImage' data-testid={'background'} src={`${game.background_image}`}/>
       </div>

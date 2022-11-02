@@ -51,4 +51,20 @@
 #dark-login-btn {
   background-color: #0062b3;
   border-color: black;
+}
+
+@media screen and (min-width: 481px) {
+  .loginForm {
+    min-width: 70%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .loginForm {
+    min-width: 50%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .loginForm {
+    min-width: 45%;
+  }
 }/*# sourceMappingURL=login.css.map */

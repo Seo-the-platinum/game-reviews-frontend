@@ -5,7 +5,7 @@ import LoginAndSignup from './LoginAndSignup'
 import Logout from './Logout'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleTheme } from '../../features/theme/themeSlice'
-
+import HeaderAddOn from '../headerAddOn/AdditionalBtns'
 import './css/header.css'
 
 const Header = () => {
@@ -15,6 +15,7 @@ const Header = () => {
   const handleToggle = ()=> {
       dispatch(toggleTheme())
     }
+  const width = window.screen.width
   return (
     <div className='headerContainer'>
         <Switch
@@ -30,7 +31,10 @@ const Header = () => {
           uncheckedIcon={false}
         />
         <SearchBar/>
-        {!user.username ? <LoginAndSignup/> : <Logout/>}
+        <div className="btnsContainer">
+          {width > 1024 && <HeaderAddOn dark={dark}/>}
+          {!user.username ? <LoginAndSignup/> : <Logout/>}
+        </div>
     </div>
   )
 }

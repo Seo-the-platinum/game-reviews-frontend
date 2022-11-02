@@ -1,4 +1,10 @@
 //CLASSES
+.btnsContainer {
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    width: 35%;
+}
 
 .header-btns {
     font-size: .75em;
