@@ -24,11 +24,11 @@ const Review = ({dark, review}) => {
                   },
             })
             const json = await data.json()
-            setUsername(json.data.user.username)
+            const formattedUsername = `${json.data.user.username.slice(0,1).toUpperCase()}${json.data.user.username.slice(1)}`
+            setUsername(formattedUsername)
         }
         getUsername()
     },[user_id])
-
   return (
     <div className='reviewContainer'>
         <div className="usernameAndRating">
@@ -40,7 +40,7 @@ const Review = ({dark, review}) => {
                 })}
             </div>
         </div>
-        <div className="reviewContext">
+        <div className="reviewContextContainer">
             <p className={dark ? 'darkReviewContext' : 'reviewContext'}>{context}</p>
         </div>
     </div>

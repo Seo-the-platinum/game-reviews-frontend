@@ -19,6 +19,7 @@
 }
 
 .loginAndSignups {
+  align-items: center;
   display: flex;
   gap: 5%;
   justify-content: flex-end;
@@ -29,6 +30,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .relativeSearchBar {
@@ -216,5 +218,14 @@ svg {
   .btnsContainer {
     gap: 5%;
     width: 30%;
+  }
+  .header-btns {
+    max-height: 40px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .header-btns {
+    font-size: 1.75em;
+    padding: 2%;
   }
 }/*# sourceMappingURL=header.css.map */

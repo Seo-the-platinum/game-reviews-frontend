@@ -2,6 +2,7 @@
 
 .darkReviewUsername {
     color: white;
+    font-weight: bold;
 }
 
 .darkReviewContext {
@@ -18,12 +19,23 @@
     color: black;
 }
 
+.reviewContextContainer {
+    display: flex;
+}
+
 .reviewUsername {
     color: black;
+    font-weight: bold;
 }
 
 .usernameAndRating {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 769px) {
+    .reviewContainer {
+        width: 60%;
+    }
 }
