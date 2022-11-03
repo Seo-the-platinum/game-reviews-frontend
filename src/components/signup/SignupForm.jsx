@@ -14,7 +14,7 @@ const SignupForm = ({dark}) => {
     const addUser = (data)=> {
         const addUserReq = async ()=> {
             try {
-                const emailExists = await fetch('http://127.0.0.1:5000/graphql', {
+                const emailExists = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
                     body: JSON.stringify({
                         query: `query {
                             users {
@@ -29,7 +29,7 @@ const SignupForm = ({dark}) => {
 
                 const emailJson = await emailExists.json()
                 if (!emailJson.data.users.find(user=> user.email === data.email || user.username === data.username)) {
-                    const request = await fetch('http://127.0.0.1:5000/graphql', {
+                    const request = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
                         body: JSON.stringify({
                             query: `mutation {
                                 addUser(

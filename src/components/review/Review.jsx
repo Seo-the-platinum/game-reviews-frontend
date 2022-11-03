@@ -11,7 +11,7 @@ const Review = ({dark, review}) => {
     const starCount = Array.from(Array(5).keys())
     useEffect(()=> {
         const getUsername = async ()=> {
-            const data = await fetch('http://127.0.0.1:5000/graphql', {
+            const data = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
                 body: JSON.stringify({
                     query: `query {
                         user(id:"${user_id}") {

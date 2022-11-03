@@ -10,7 +10,7 @@ const GameTile = ({game}) => {
     const [ gameData, setGameData ] = useState()
     useEffect(()=> {
         const getGameData = async ()=> {
-            const request = await fetch('http://127.0.0.1:5000/graphql', {
+            const request = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
                 body: JSON.stringify({
                     query: `query {
                         gameById(id: "${game.game_id}") {

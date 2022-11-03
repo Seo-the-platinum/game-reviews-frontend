@@ -18,7 +18,7 @@ const LoginForm = ({dark}) => {
     useEffect(()=> {
         if (loginData) {
             const loginUser = async ()=> {
-                const loginReq = await fetch('http://127.0.0.1:5000/graphql', {
+                const loginReq = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
                     body: JSON.stringify({
                         query: `query {
                             userLogin(string: "${loginData.email_or_username}", password: "${loginData.password}") {

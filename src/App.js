@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(()=> {
     const getData = async ()=> {
-      const data = await fetch('http://127.0.0.1:5000/graphql', {
+      const data = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
         body: JSON.stringify({
           query: `query {
             games {

@@ -7,7 +7,7 @@ export const addGameRequest = async (game)=> {
           method: 'GET'
         })
         const gameData = await getDetails.json()
-        const request = await fetch('http://127.0.0.1:5000/graphql', {
+        const request = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
           body: JSON.stringify({
             query: 
               `mutation {
