@@ -2,8 +2,7 @@
 .btnsContainer {
     display: flex;
     gap: 10%;
-    justify-content: center;
-    width: 35%;
+    justify-content: space-evenly;
 }
 
 .header-btns {
@@ -23,7 +22,8 @@
 .loginAndSignups {
     display: flex;
     gap: 5%;
-    justify-content: space-between;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .outerSearchBarContainer {
@@ -103,6 +103,10 @@
     text-align: left;
 }
 
+svg{
+    pointer-events: none;
+  }
+
 //IDS
 
 #dark-login-btn {
@@ -132,7 +136,8 @@
 #logout-btn {
     background-color: white;
     border: 2px solid #0062b3;
-    padding: 8% 8%;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #header-signup-btn {
@@ -141,9 +146,16 @@
 }
 
 @media screen and (max-width: 360px) {
+    .btnsContainer {
+        left: 55%;
+        justify-content: center;
+        position: absolute;
+        top: 100%;
+        width: 40%;
+    }
+
     .loginAndSignups {
         margin-top: 5%;
-        width: 40%;
     }
 
     .header-btns {
@@ -160,6 +172,10 @@
         width: 80%;
     }
 
+    .resultsContainer {
+        z-index: 1;
+    }
+
     .searchBarContainer {
         width: 100%;
     }
@@ -167,6 +183,9 @@
 }
 
 @media screen and (min-width: 481px) {
+    .btnsContainer {
+        width: 25%;
+    }
 
     .header-btns {
         font-size: .85em;
@@ -176,7 +195,7 @@
 
     .loginAndSignups {
         gap: 15%;
-        width: 20%;
+        width: 100%;
     }
 
     .outerSearchBarContainer {
@@ -191,7 +210,7 @@
 
 @media screen and (min-width: 769px) {
     .header-btns {
-        font-size: 1.25em;
+        font-size: 1em;
     }
 
     .headerContainer {
@@ -205,11 +224,19 @@
     }
 
     .outerSearchBarContainer {
+        margin-left: 15%;
         max-width: 50%;
         min-width: 40%;
     }
 
     .searchBar {
         margin-left: 2%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .btnsContainer {
+        gap: 5%;
+        width: 30%;
     }
 }

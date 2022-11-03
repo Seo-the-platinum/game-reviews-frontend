@@ -10,9 +10,9 @@ const AdditionalBtns = ({dark}) => {
     const navigate = useNavigate()
     const user = useSelector(state => state.user.value)
     const handleClick = (e)=> {
-        const id = e.target.dataset.testid
+        const id = e.target.name
         console.log(id)
-        if (id === 'HomeIcon') {
+        if (id === 'home') {
             navigate('/')
         } else if (!user.username){
             navigate('/login')
@@ -22,12 +22,16 @@ const AdditionalBtns = ({dark}) => {
     }
   return (
     <div className={'additionalContainer'}>
-        <button name='home' onClick={handleClick}>
-            <HomeIcon sx={{fontSize: '40px', color: dark ? 'white' : 'black',}}/>
-        </button>
-        <button onClick={handleClick} style={{width: '50px', border: 'none', background: 'none'}}>
-            <PersonIcon sx={{fontSize: '40px', color: dark ? 'white' : 'black', pointerEvents: 'none'}}/>
-        </button>
+        <IconButton 
+            name='home' 
+            onClick={handleClick}>
+            <HomeIcon sx={{color: dark ? 'white': 'black', fontSize: '40px'}}/>
+        </IconButton>
+        <IconButton
+            name='person'
+            onClick={handleClick}>
+            <PersonIcon sx={{fontSize: '40px', color: dark ? 'white' : 'black',}}/>
+        </IconButton>
     </div>
   )
 }

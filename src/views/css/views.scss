@@ -22,9 +22,21 @@
 
 // MEDIA QUERIES
 
+@media  screen and (max-width: 360px) {
+    .views {
+        margin-top: 30%;
+    }
+}
+
 @media screen and (min-width: 481px) {
     .views {
         padding-left: 5%;
         padding-right: 5%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .views {
+        padding-bottom: 0;
     }
 }
