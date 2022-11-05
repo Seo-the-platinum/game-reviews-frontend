@@ -8,6 +8,7 @@
   font-size: 0.75em;
   border-radius: 10px;
   max-height: 28px;
+  padding: 5px;
 }
 
 .headerContainer {
@@ -16,6 +17,7 @@
   position: absolute;
   padding-top: 1%;
   width: 100%;
+  max-width: 1200px;
 }
 
 .loginAndSignups {

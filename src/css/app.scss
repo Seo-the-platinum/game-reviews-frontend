@@ -1,12 +1,12 @@
 @use '../abstracts/index' as *;
 
 .app {
+    align-items: center;
     background-color: $main_background_color;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     text-align: center;
-    max-width: 1200px;
 }
 
 .dark {

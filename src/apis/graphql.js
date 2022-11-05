@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: '/graphql'
+    baseURL: 'https://seos-game-reviews.herokuapp.com/graphql'
 })

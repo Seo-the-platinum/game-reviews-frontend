@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultItem from './SearchResultItem'
-import { addGameRequest } from '../../utils/addGameApi';
+import { addGameRequest } from '../../utils/addGame';
+import { useDispatch } from 'react-redux'
+import { addGame } from '../../features/games/gamesSlice'
 import './css/header.css'
 
 const SearchBar = () => {
@@ -10,6 +12,7 @@ const SearchBar = () => {
   const [ results, setResults ] = useState([])
   const [focusedIndex, setFocusedIndex ] = useState(-1)
   const resultContainer = useRef(null)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   useEffect(()=> {
@@ -118,6 +121,7 @@ const SearchBar = () => {
   const handleRedirect = async (game)=> {
     if (typeof game.id !== 'string') {
       const addedGame = await addGameRequest(game)
+      dispatch(addGame(addedGame))
       handleClear()
       navigate('/game-details', { state: {...addedGame}})
     } else {

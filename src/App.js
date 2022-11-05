@@ -8,14 +8,13 @@ import GameDetails from './views/gameDetails/GameDetails'
 import AddReview from './views/addReview/AddReview'
 import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getGames } from './features/games/gamesSlice'
 import './css/app.css'
 
 const App = () => {
-  // const [ dark, setDark ] = useState(true)
   const dark = useSelector(state=> state.theme.value)
-  const [ games, setGames ] = useState([])
-
+  const dispatch = useDispatch()
   useEffect(()=> {
     const getData = async ()=> {
       const data = await fetch('https://seos-game-reviews.herokuapp.com/graphql', {
@@ -41,7 +40,7 @@ const App = () => {
         },
       })
       const json = await data.json()
-      setGames(json.data.games)
+      dispatch(getGames(json.data.games))
     }
     getData()
   },[])
@@ -51,7 +50,7 @@ const App = () => {
     <div className={!dark ? 'app' : 'app dark'} role='app'>
       <Header/>
       <Routes>
-        <Route path='/' element={<Home games={games}/>}/>
+        <Route path='/' element={<Home />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/game-details' element={<GameDetails />} />
