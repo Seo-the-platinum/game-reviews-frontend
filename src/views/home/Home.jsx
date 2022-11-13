@@ -9,7 +9,7 @@ const Home = () => {
   const games = useSelector(state=> state.games.value)
   return (
     <div className='views'>
-        {user.username && <h1 style={{color: dark ? 'white':'black'}}>{user.username && `Hello ${user.username}`}</h1>}
+        { user.username && <h1 style={{color: dark ? 'white':'black'}}>{user.username && `Hello ${user.username}`}</h1>}
         { games && games.map((game, index) => <Game key={game.id} game={game} inverted={index % 2 === 0}/>)}
     </div>
   )

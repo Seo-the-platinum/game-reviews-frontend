@@ -35,6 +35,11 @@
   padding: 10px;
 }
 
+.dark-login-btn {
+  background-color: #0062b3;
+  border-color: black;
+}
+
 .loginForm {
   align-items: center;
   border-radius: 4px;
@@ -46,11 +51,6 @@
 
 .loginErrors {
   color: red;
-}
-
-#dark-login-btn {
-  background-color: #0062b3;
-  border-color: black;
 }
 
 @media screen and (min-width: 481px) {

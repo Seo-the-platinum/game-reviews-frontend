@@ -18,7 +18,7 @@
   padding: 10px;
 }
 
-#dark-signup-btn {
+.dark-signup-btn {
   background-color: #0062b3;
   color: white;
 }

@@ -77,7 +77,7 @@ const LoginForm = ({dark}) => {
         <p className='loginErrors'>
             {errors.password?.message}
         </p>
-        <button className='login-btn' id={dark ? 'dark-login-btn' : ''} type='submit'>
+        <button className={dark ? 'dark-login-btn login-btn' : 'login-btn'}  type='submit'>
             Submit
         </button>
     </form>

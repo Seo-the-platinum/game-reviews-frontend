@@ -107,7 +107,7 @@ const SignupForm = ({dark}) => {
             />
             <p className='signupErrors'>{errors.confirm?.message}</p>
         </div>
-        <button className='signup-btn' id={dark ? 'dark-signup-btn' : ''} type='submit'>Signup</button>
+        <button className={dark ? 'signup-btn dark-signup-btn' : 'signup-btn'} type='submit'>Signup</button>
     </form>
   )
 }
